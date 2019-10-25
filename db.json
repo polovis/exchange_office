@@ -1,0 +1,54 @@
+{
+  "currencies": {
+    "usd": 200,
+    "eur": 300,
+    "chf": 300,
+    "rub": 300,
+    "czk": 300,
+    "gbp": 300
+  },
+  "users": [
+    {
+      "id": 1,
+      "name": "Indiana",
+      "surname": "Jones",
+      "pass": 1234,
+      "currencies": {
+        "usd": 0,
+        "eur": 0,
+        "chf": 0,
+        "rub": 0,
+        "czk": 0,
+        "gbp": 0
+      }
+    },
+    {
+      "name": "aa",
+      "surname": "aa",
+      "pass": "aa",
+      "currencies": {
+        "usd": "100",
+        "eur": "",
+        "chf": "",
+        "rub": "",
+        "czk": "",
+        "gbp": ""
+      },
+      "id": 2
+    },
+    {
+      "name": "aa",
+      "surname": "aa",
+      "pass": "aa",
+      "currencies": {
+        "usd": "100",
+        "eur": "",
+        "chf": "",
+        "rub": "",
+        "czk": "",
+        "gbp": ""
+      },
+      "id": 3
+    }
+  ]
+}
