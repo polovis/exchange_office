@@ -6,8 +6,7 @@ function init() {
     const exchange_db = 'http://localhost:3000';
     let availablePlnAmount = 1200;
     document.querySelector('.wallet-vaule td').innerText = `Available PLN ${availablePlnAmount}`;
-    let aaa;
-
+        
     updateAvailablePlnCurrency = (earnPln) => {
         let newPlnAmount = availablePlnAmount + earnPln;
         availablePlnAmount = newPlnAmount;
@@ -181,8 +180,8 @@ function init() {
         } = data;
 
         const userCurrencyAmountNode = document.querySelectorAll('.currency-amount');
-        const aaa = document.querySelectorAll('.my-wallet-wrapper .currency-price');
-        const bbb = document.querySelectorAll('.my-wallet-wrapper .currency-value');
+        const currencyPrice = document.querySelectorAll('.my-wallet-wrapper .currency-price');
+        const currencyValue = document.querySelectorAll('.my-wallet-wrapper .currency-value');
         const userCurrencyAmount = [usd, eur, chf, rub, czk, gbp];
 
 
@@ -190,10 +189,10 @@ function init() {
           
             if (userCurrencyAmount[i] != "") {
                 userCurrencyAmountNode[i].innerText = parseInt(userCurrencyAmount[i]);
-                bbb[i].innerText = parseInt(userCurrencyAmount[i])*(parseFloat(aaa[i].innerText))*100/100;
+                currencyValue[i].innerText = parseInt(userCurrencyAmount[i])*(parseFloat(currencyPrice[i].innerText))*100/100;
             } else {
                 userCurrencyAmountNode[i].innerText = 0;
-                bbb[i].innerText = 0;
+                currencyValue[i].innerText = 0;
             }
         }
 
