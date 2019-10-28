@@ -23,6 +23,17 @@ function init() {
         }
     }
 
+    document.querySelectorAll('table .numeric').forEach(input => {
+        input.addEventListener('change', function(){       
+            if(this.value < 0) {
+                alert(`You can't give a negative amount of currencies`);   
+               this.nextElementSibling.setAttribute('disabled', 'true');
+            } else {               
+                this.nextElementSibling.removeAttribute('disabled', 'false');
+            }
+        })
+    })
+
     //operation of the currency buy button
     buyCurrency = (data) => {
         const buyCurrencyBtn = document.querySelectorAll('.currencies-wrapper .currency-buyBtn-wrapper button');
@@ -132,7 +143,21 @@ function init() {
         sendUserData.classList.add('show');
     });
 
-    sendUserData.addEventListener('submit', function (e) {
+    // sendUserData.addEventListener('submit', setUserCurrencyInfo);
+    const numericInput = document.querySelectorAll('.loggin-form .numeric');
+
+    numericInput.forEach(input => {
+        input.addEventListener('change', function(){
+            if(this.value < 0) {
+                alert(`You can't give a negative amount of currencies`);               
+                sendUserData.removeEventListener('submit', setUserCurrencyInfo);
+            } else {  
+                sendUserData.addEventListener('submit', setUserCurrencyInfo);
+            }
+        })
+    })
+
+    function setUserCurrencyInfo(e) {
         e.preventDefault();
         
         sendUserData.classList.remove('show');
@@ -209,7 +234,7 @@ function init() {
                 sellCurrency();
                 buyCurrency(request);
             })
-    })
+    }
 
     //fetch currencies data from server
     function setCurrencyExchangeRateTime(time) {
